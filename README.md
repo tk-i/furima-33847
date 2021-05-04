@@ -1,24 +1,88 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column    | Type   | Options     |
+| --------- | ------ | ----------- |
+| nickname  | string | null: false |
+| email     | string | null: false |
+| password  | string | null: false |
+| name      | string | null: false |
+| name_kana | string | null: false |
+| birthday  | string | null: false |
 
-Things you may want to cover:
+## Association
+- has_many :items
+- has_one :buyer
+- has_many :comments
 
-* Ruby version
+## itemsテーブル
 
-* System dependencies
+| Column   | Type       | Options           |
+| -------  | ---------- | ----------------- |
+| title    | string     | null: false       |
+| text     | text       | null: false       |
+| price    | string     | null: false       |
+| status   | string     | null: false       |
+| burden   | string     | null: false       |
+| area     | string     | null: false       |
+| shipment | string     | null: false       |
+| user     | references | foreign_key: true |
 
-* Configuration
+## Association
+- belongs_to :user
+- has_one :buyer
+- has_many :categories, through: item_categories
+- has_many :comments
 
-* Database creation
+## categoriesテーブル
 
-* Database initialization
+| Column     | Type       | Options           |
+| ---------- | ---------- | ----------------- |
+| categorize | text       | null: false       |
+| user       | references | foreign_key: true |
+| item       | references | foreign_key: true |
 
-* How to run the test suite
+## Association
+- has_many :items, through: item_categories
 
-* Services (job queues, cache servers, search engines, etc.)
+## item_categoriesテーブル
 
-* Deployment instructions
+| Column     | Type       | Options           |
+| ---------- | ---------- | ----------------- |
+| user       | references | foreign_key: true |
+| categorize | references | foreign_key: true |
 
-* ...
+## Association
+- belongs_to :item
+- belongs_to :categories
+
+## buyersテーブル
+
+| Column     | Type       | Options           |
+| ---------- | ---------- | ----------------- |
+| credit     | string     | null: false       |
+| expiration | string     | null: false       |
+| security   | string     | null: false       |
+| postal     | string     | null: false       |
+| region     | string     | null: false       |
+| city       | string     | null: false       |
+| address    | string     | null: false       |
+| address2   | string     |                   |
+| phone      | string     | null: false       |
+| user       | references | foreign_key: true |
+| item       | references | foreign_key: true |
+
+## Association
+- belongs_to :user
+- belongs_to :item
+
+## commentsテーブル
+
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| text   | text       | null: false       |
+| user   | references | foreign_key: true |
+| item   | references | foreign_key: true |
+
+## Association
+- belongs_to :user
+- belongs_to :item
