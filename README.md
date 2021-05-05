@@ -13,7 +13,6 @@
 
 ## Association
 - has_many :items
-- has_one :buyer
 - has_many :logs
 - has_many :comments
 
@@ -33,7 +32,6 @@
 
 ## Association
 - belongs_to :user
-- has_one :buyer
 - has_one :log
 - has_many :comments
 
@@ -50,9 +48,7 @@
 | log        | references | foreign_key: true |
 
 ## Association
-- belongs_to :user
-- belongs_to :item
-- has_one :log
+- belongs_to :log
 
 ## logsテーブル
 
@@ -65,7 +61,7 @@
 ## Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :buyer
+- has_one :buyer
 
 ## commentsテーブル
 
