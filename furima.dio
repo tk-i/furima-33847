@@ -65,7 +65,7 @@
                 <mxCell id="103" value="category_id" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="7" vertex="1">
                     <mxGeometry y="86" width="160" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="image(ActiveStrageで実装)" style="text;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;align=center;strokeColor=#f0f0f0;" parent="7" vertex="1">
+                <mxCell id="10" value="image" style="text;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;align=center;strokeColor=#f0f0f0;" parent="7" vertex="1">
                     <mxGeometry y="112" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="79" value="price" style="text;fillColor=none;align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;strokeColor=#f0f0f0;" parent="7" vertex="1">
