@@ -10,7 +10,6 @@ class Item < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is invalid" }
   
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :user, optional: true
   belongs_to_active_hash :category
   belongs_to_active_hash :status
   belongs_to_active_hash :burden
