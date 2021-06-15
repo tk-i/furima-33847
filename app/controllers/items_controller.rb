@@ -48,10 +48,10 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-end
 
-def user_difference
-  unless current_user == @item.user
-    redirect_to root_path
+  def user_difference
+    unless current_user == @item.user
+      redirect_to root_path
+    end
   end
 end
