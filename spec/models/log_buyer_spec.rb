@@ -81,6 +81,12 @@ RSpec.describe LogBuyer, type: :model do
         @log_buyer.valid?
         expect(@log_buyer.errors.full_messages).to include("Item can't be blank")
       end
+
+      it "トークンがなければ購入できないこと" do
+        @log_buyer.token = nil
+        @log_buyer.valid?
+        expect(@log_buyer.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end
