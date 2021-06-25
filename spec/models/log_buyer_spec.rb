@@ -52,7 +52,7 @@ RSpec.describe LogBuyer, type: :model do
       end
 
       it "電話番号は9桁以内の数値では保存できないこと" do
-        @log_buyer.phone = 123456789
+        @log_buyer.phone = '123456789'
         @log_buyer.valid?
         expect(@log_buyer.errors.full_messages).to include("Phone is invalid")
       end
