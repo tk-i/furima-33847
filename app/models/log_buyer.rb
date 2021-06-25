@@ -15,6 +15,5 @@ class LogBuyer
   def save
     log = Log.create(user_id: user_id, item_id: item_id)
     Buyer.create(postal: postal, area_id: area_id, city: city, address: address, address2: address2, phone: phone, log_id: log.id)
-    Card.create(token: token, user_id: user_id)
   end
 end
