@@ -1,8 +1,8 @@
 class LogsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
   before_action :set_item, only: [:index, :create]
-  before_action :sold_out_item, only: [:index]
-  before_action :same_user, only: [:index]
+  before_action :sold_out_item, only: [:index, :create]
+  before_action :same_user, only: [:index, :create]
 
   def index
     @log_buyer = LogBuyer.new

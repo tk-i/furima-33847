@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe LogBuyer, type: :model do
   before do
-    @user = FactoryBot.create(:user)
-    @item = FactoryBot.create(:item)
-    @log_buyer = FactoryBot.build(:log_buyer, user_id: @user.id, item_id: @item.id)
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @log_buyer = FactoryBot.build(:log_buyer, user_id: user.id, item_id: item.id)
     sleep 0.1
   end
   
@@ -51,8 +51,14 @@ RSpec.describe LogBuyer, type: :model do
         expect(@log_buyer.errors.full_messages).to include("Address can't be blank")
       end
 
-      it "電話番号は11桁以内の数値のみ保存可能なこと" do
-        @log_buyer.phone = 12345
+      it "電話番号は9桁以内の数値では保存できないこと" do
+        @log_buyer.phone = 123456789
+        @log_buyer.valid?
+        expect(@log_buyer.errors.full_messages).to include("Phone is invalid")
+      end
+
+      it "電話番号は12桁以上の数値では保存できないこと" do
+        @log_buyer.phone = '012345678901'
         @log_buyer.valid?
         expect(@log_buyer.errors.full_messages).to include("Phone is invalid")
       end
